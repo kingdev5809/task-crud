@@ -4,6 +4,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import Posts from "./Layout/Posts/Posts";
 import { Route, Routes } from "react-router-dom";
 import PostDetail from "./Layout/Posts/PostDetail";
+import "react-confirm-alert/src/react-confirm-alert.css";
 
 function App() {
   return (

@@ -8,6 +8,7 @@ import UpdatePost from "./Components/UpdatePost/UpdatePost";
 import { addPost, deletePost } from "../../Redux/PostSlice/PostSlice";
 import AddPost from "./Components/AddPost/AddPost";
 import Search from "./Components/Search/Search";
+import { confirmAlert } from "react-confirm-alert";
 function Posts() {
   const dispatch = useDispatch();
   const { AllPosts, loading } = useSelector((state) => state.PostSlice);
@@ -32,9 +33,24 @@ function Posts() {
 
   // delete posts
   const handleDelete = (id) => {
-    if (window.confirm("Are you sure?")) {
-      dispatch(deletePost(id));
-    }
+    dispatch(deletePost(id));
+  };
+
+  const handleClickConfirmDelete = (id) => {
+    confirmAlert({
+      title: "Are you Sure delete This post",
+      message: "Are you sure to do this.",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => handleDelete(id),
+        },
+        {
+          label: "No",
+          onClick: () => console.log("Click No"),
+        },
+      ],
+    });
   };
 
   const handleAddPost = (item) => {
@@ -116,7 +132,7 @@ function Posts() {
           <PostCard
             key={item.id}
             item={item}
-            handleDelete={handleDelete}
+            handleDelete={handleClickConfirmDelete}
             setUpdatedBody={setUpdatedBody}
             setUpdateModalVisible={setUpdateModalVisible}
           />

@@ -11,6 +11,7 @@ import {
 import { addPost, deletePost } from "../../Redux/PostSlice/PostSlice";
 import UpdatePost from "./Components/UpdatePost/UpdatePost";
 import AddPost from "./Components/AddPost/AddPost";
+import { confirmAlert } from "react-confirm-alert";
 
 const PostDetail = () => {
   const dispatch = useDispatch();
@@ -46,12 +47,25 @@ const PostDetail = () => {
   }, [post]);
 
   const handleDelete = () => {
-    if (window.confirm("Are you sure?")) {
-      dispatch(deletePost(id));
-      navigate("/");
-    }
+    dispatch(deletePost(id));
+    navigate("/");
   };
-
+  const handleClickConfirm = () => {
+    confirmAlert({
+      title: "Confirm to submit",
+      message: "Are you sure to do this.",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => handleDelete(),
+        },
+        {
+          label: "No",
+          onClick: () => console.log("Click No"),
+        },
+      ],
+    });
+  };
   const handleAddPost = (item) => {
     dispatch(addPost(item));
     setAddPostModalVisible(false);
@@ -73,7 +87,7 @@ const PostDetail = () => {
           <div className="buttons">
             <button onClick={() => setAddPostModalVisible(true)}>Create</button>
             <button onClick={() => handleSetUpdatedPost()}>Update</button>
-            <button onClick={() => handleDelete()}>Delete</button>
+            <button onClick={() => handleClickConfirm()}>Delete</button>
           </div>
           <div className="author">
             <h1>Author</h1>
