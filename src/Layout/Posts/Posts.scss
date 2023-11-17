@@ -1,0 +1,125 @@
+.posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+}
+.filte-div {
+  align-items: end;
+  .filterByOrder {
+    select {
+      padding: 0.7rem 2rem;
+    }
+  }
+}
+.top {
+  margin: 3rem 0;
+  margin-top: 2rem;
+  // font-size: 14px;
+
+  .flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    margin: 2rem 0;
+    .add-post {
+      margin: auto 0;
+      margin-bottom: 0;
+      button {
+        font-size: 0.8em;
+        cursor: pointer;
+        background-color: transparent;
+        color: black;
+        border: 1px solid black;
+        padding: 0.8rem 2rem;
+        &:hover {
+          color: white;
+          background-color: black;
+        }
+        &.active {
+          color: white;
+          background-color: black;
+        }
+      }
+    }
+    &.active {
+      padding-bottom: 3rem;
+    }
+  }
+  .title {
+    font-size: 2.5rem;
+    color: black;
+  }
+}
+.edit-delete-btn {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 30px;
+  margin: 2rem 0;
+  button {
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    &:hover {
+      color: white;
+      background-color: black;
+    }
+  }
+}
+
+// post detail
+.post-detail {
+  color: black;
+  text-align: center;
+  margin-top: 10px;
+  .content {
+    img {
+      width: 500px;
+    }
+  }
+  .buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+    button {
+      font-size: 0.8em;
+      cursor: pointer;
+      background-color: transparent;
+      color: black;
+      border: 1px solid black;
+      padding: 0.3rem 1rem;
+      &:hover {
+        color: white;
+        background-color: black;
+      }
+      &.active {
+        color: white;
+        background-color: black;
+      }
+    }
+  }
+}
+.detail-comments {
+  width: 80%;
+  margin: 30px auto;
+  h1 {
+    color: black;
+    margin: 10px 0;
+    text-align: center;
+  }
+  h3 {
+    color: black;
+  }
+}
+@media screen and (max-width: 648px) {
+  .top {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 590px) {
+  .top {
+    font-size: 12px;
+  }
+}
