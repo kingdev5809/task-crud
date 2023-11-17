@@ -24,7 +24,6 @@ const PostDetail = () => {
     title: null,
     author: null,
   });
-  console.log(comments);
   const [postImage, setPostImage] = useState("");
   const handleGetPostPhoto = async () => {
     await axios
